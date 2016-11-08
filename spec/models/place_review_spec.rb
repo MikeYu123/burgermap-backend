@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe PlaceReview, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "Should be invalid without lat and lng"
+  it "Should be invalid without title"
+  it "Should be invalid without mark"
+  it "Should be valid with title, mark, lat and lng"
+  it "Should persist all fields"
 end

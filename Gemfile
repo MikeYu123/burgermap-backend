@@ -5,15 +5,20 @@ gem 'rails', '4.2.7.1'
 gem 'rails-api'
 
 gem 'pg'
-# RSpec for BDD tests
-gem 'rspec-rails'
-# Extra matchers for RSpec
-gem 'shoulda-matchers'
 # Auth gems
 gem 'omniauth'
 gem 'devise_token_auth'
 
-group :development do
+group :development, :test do
+  # RSpec for BDD tests
+  gem 'rspec-rails'
+  # Extra matchers for RSpec
+  gem 'shoulda-matchers'
+  # Factories
+  gem 'factory_girl_rails'
+  # Gems for factories
+  gem 'faker'
+  # Preloader
   gem 'spring'
   # Traces unused and unreachable routes
   gem 'traceroute'

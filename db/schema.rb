@@ -11,23 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107125249) do
+ActiveRecord::Schema.define(version: 20161108083546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "place_reviews", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",             null: false
     t.string   "short_description"
     t.string   "image"
-    t.float    "lat"
-    t.float    "lng"
+    t.float    "lat",               null: false
+    t.float    "lng",               null: false
     t.text     "description"
-    t.float    "mark"
+    t.float    "mark",              null: false
     t.string   "link"
     t.integer  "user_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "address"
   end
 
   add_index "place_reviews", ["lat", "lng"], name: "index_place_reviews_on_lat_and_lng", using: :btree

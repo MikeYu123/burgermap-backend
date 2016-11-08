@@ -18,4 +18,4 @@ test:
 production:
   <<: *default
   database: burgermap_production
-  password: <%= ENV['BURGERMAP_DB_PASSWORD']>
+  password: <%= ENV['BURGERMAP_DB_PASSWORD']%>
