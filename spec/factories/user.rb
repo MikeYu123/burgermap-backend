@@ -1,14 +1,21 @@
+def sample_provider
+  providers = ['google', 'facebook', 'vk', 'email']
+  providers.sample
+end
+
 FactoryGirl.define do
   factory :user do
-    title { Faker::Company.name }
-    short_description { Faker::Lorem.sentence }
+    transient do
+      sample_password {Faker::Internet.password(8)}
+      sample_email {Faker::Internet.email}
+    end
+    provider 'email'
+    uid {sample_email}
+    name { Faker::Name.name }
+    nickname { Faker::Hipster.word }
     image { Faker::Avatar.image }
-    lat {Faker::Address.latitude}
-    lng {Faker::Address.longitude}
-    description { Faker::Lorem.paragraph }
-    mark { generate_mark }
-    link { Faker::Internet.url }
-    user
-    address {generate_address}
+    email {sample_email}
+    password {sample_password}
+    password_confirmation {sample_password}
   end
 end
