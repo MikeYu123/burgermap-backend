@@ -5,7 +5,7 @@ RSpec.describe ReviewsController, type: :controller do
     PlaceReview.destroy_all
   end
   describe "GET #show" do
-    it "should not require authentication" do
+    it "should return correct place json without authentication" do
       place = FactoryGirl.create :valid_place
       get :show, id: place.id
       expect(response).to have_http_status(:ok)
